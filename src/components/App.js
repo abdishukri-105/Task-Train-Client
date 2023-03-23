@@ -25,8 +25,8 @@ function App() {
       <main> 
         <Routes>
           <Route path="/new"  element={<NewTodo user={user} />}/>
-          <Route path="/" element={<TodoList />}/>
-          
+          <Route path="/todo" element={<TodoList />}/>
+          <Route path="/" element = {<Login onLogin={setUser} />}/>
         </Routes>
       </main>
     </>

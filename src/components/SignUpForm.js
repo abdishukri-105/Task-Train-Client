@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 function SignUpForm({ onLogin }) {
   const [username, setUsername] = useState("");
@@ -8,35 +9,37 @@ function SignUpForm({ onLogin }) {
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    setErrors([]);
-    setIsLoading(true);
-    fetch("http://127.0.0.1:3000/users", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        username,
-        email,
-        password,
-        password_confirmation: passwordConfirmation,
-      }),
-    }).then((r) => {
-      setIsLoading(false);
-      if (r.ok) {
-        r.json().then((user) => onLogin(user));
-      } else {
-        r.json().then((err) => setErrors(err.errors));
-      }
-    });
-  }
+  // function handleSubmit(e) {
+  //   e.preventDefault();
+  //   setErrors([]);
+  //   setIsLoading(true);
+  //   fetch("http://127.0.0.1:3000/users", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify({
+  //       username,
+  //       email,
+  //       password,
+  //       password_confirmation: passwordConfirmation,
+  //     }),
+  //   }).then((r) => {
+  //     setIsLoading(false);
+  //     if (r.ok) {
+  //       r.json().then((user) => onLogin(user));
+  //     } else {
+  //       r.json().then((err) => setErrors(err.errors));
+  //     }
+  //   });
+  // }
 
   return (
   <>
     <div className="flex justify-center  ">
-      <form onSubmit={handleSubmit} className="w-full max-w-sm bg-white shadow-lg rounded-lg p-6">
+      <form 
+      // onSubmit={handleSubmit} 
+      className="w-full max-w-sm bg-white shadow-lg rounded-lg p-6">
         <h2 className="text-xl font-bold mb-1 text-center">Sign Up</h2>
         <div className="mb-2">
           <label htmlFor="username" className="block text-gray-700 font-bold mb-2">Username</label>
@@ -82,9 +85,9 @@ function SignUpForm({ onLogin }) {
           />
         </div>
         <div className="flex items-center mt-4 justify-between">
-          <button type="submit" className="bg-pink-700 hover:bg-pink-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+          <Link to="/todo" type="submit" className="bg-pink-700 hover:bg-pink-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
             {isLoading ? "Loading..." : "Sign Up"}
-          </button>
+          </Link>
         </div>
         {errors.length > 0 && (
           <div className="mt-2">

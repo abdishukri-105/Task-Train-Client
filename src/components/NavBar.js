@@ -18,9 +18,9 @@ function NavBar({ user, setUser }) {
       </h1>
       <nav className="flex gap-4 absolute right-8">
         <Link to="/new" className="bg-yellow-200 py-3 px-4 font-bold  rounded-md">New Task</Link>
-        <button className="bg-yellow-200 py-3 px-4 font-bold  rounded-md" onClick={handleLogoutClick}>
+        <Link to="/" className="bg-yellow-200 py-3 px-4 font-bold  rounded-md" onClick={handleLogoutClick}>
           Logout
-        </button>
+        </Link>
       </nav>
     </header>
   );

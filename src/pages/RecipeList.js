@@ -13,7 +13,7 @@ function RecipeList() {
       .then(setRecipes);
   }, []);
 
-  return (
+  return ( 
     <Wrapper>
       {recipes.length > 0 ? (
         recipes.map((recipe) => (
