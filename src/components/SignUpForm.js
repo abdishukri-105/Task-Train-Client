@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 
-// import { Button, Error, Input, FormField, Label, } from "../styles";
-
 function SignUpForm({ onLogin }) {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -52,7 +50,7 @@ function SignUpForm({ onLogin }) {
           />
         </div>
         <div className="mb-2">
-          <label htmlFor="email" className="block text-gray-700 font-bold mb-2">Profile Image</label>
+          <label htmlFor="email" className="block text-gray-700 font-bold mb-2">Email </label>
           <input
             type="text"
             id="email"
@@ -84,7 +82,7 @@ function SignUpForm({ onLogin }) {
           />
         </div>
         <div className="flex items-center justify-between">
-          <button type="submit" className="bg-pink-500 hover:bg-pink-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+          <button type="submit" className="bg-pink-700 hover:bg-pink-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
             {isLoading ? "Loading..." : "Sign Up"}
           </button>
         </div>

@@ -14,11 +14,11 @@ const Login = ({ onLogin }) => {
       {showLogin ? (
         <>
           <LoginForm onLogin={onLogin} />
-          <hr className="border-none border-b-1 border-gray-900 " />
-          <p className="my-4">
+          <hr className="border-none border-b-1 border-gray-900 my-1" />
+          <p className="my-4 flex justify-center">
              Don't have an account? &nbsp;
             <button
-              className="bg-secondary text-white px-4 py-2 rounded"
+              className=" text-pink-600 font-bold px-4  rounded"
               onClick={() => setShowLogin(false)}
             >
               Sign Up
@@ -32,7 +32,7 @@ const Login = ({ onLogin }) => {
           <p className="my-4 flex justify-center">
              Already have an account? 
             <button
-              className="bg-secondary text-pink-700 px-4 font-bold rounded"
+              className=" text-pink-600 px-4 font-bold rounded"
               onClick={() => setShowLogin(true)}
             >
               Log In
