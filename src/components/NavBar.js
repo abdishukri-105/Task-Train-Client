@@ -1,7 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import styled from "styled-components";
-import { Button } from "../styles";
 
 function NavBar({ user, setUser }) {
 
@@ -14,47 +12,18 @@ function NavBar({ user, setUser }) {
   }
  
   return (
-    <Wrapper>
-      <Logo>
-        <Link to="/" exact >Reciplease</Link>
-      </Logo>
-      <Nav>
-        <Button as={Link} to="/new" exact >
-          New Recipe
-        </Button>
-        <Button variant="outline" onClick={handleLogoutClick}>
+    <header className="flex justify-center items-center p-4 bg-slate-">
+      <h1 className="font-bold text-3xl text-pink-700 m-0 leading-1">
+        <Link to="/">Task Train</Link>
+      </h1>
+      <nav className="flex gap-4 absolute right-8">
+        <Link to="/new" className="bg-yellow-200 py-3 px-4 font-bold  rounded-md">New Task</Link>
+        <button className="bg-yellow-200 py-3 px-4 font-bold  rounded-md" onClick={handleLogoutClick}>
           Logout
-        </Button>
-      </Nav>
-    </Wrapper>
+        </button>
+      </nav>
+    </header>
   );
 }
-
-const Wrapper = styled.header`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 8px;
-`;
-
-const Logo = styled.h1`
-  font-family: "Permanent Marker", cursive;
-  font-size: 3rem;
-  color: deeppink;
-  margin: 0;
-  line-height: 1;
-
-  a {
-    color: inherit;
-    text-decoration: none;
-  }
-`;
-
-const Nav = styled.nav`
-  display: flex;
-  gap: 4px;
-  position: absolute;
-  right: 8px;
-`;
 
 export default NavBar;

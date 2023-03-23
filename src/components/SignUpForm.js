@@ -12,7 +12,7 @@ function SignUpForm({ onLogin }) {
     e.preventDefault();
     setErrors([]);
     setIsLoading(true);
-    fetch("/signup", {
+    fetch("http://127.0.0.1:3000/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -34,10 +34,10 @@ function SignUpForm({ onLogin }) {
   }
 
   return (
-    <>
+  <>
     <div className="flex justify-center  ">
       <form onSubmit={handleSubmit} className="w-full max-w-sm bg-white shadow-lg rounded-lg p-6">
-        <h2 className="text-xl font-bold mb-2 text-center">Sign Up</h2>
+        <h2 className="text-xl font-bold mb-1 text-center">Sign Up</h2>
         <div className="mb-2">
           <label htmlFor="username" className="block text-gray-700 font-bold mb-2">Username</label>
           <input
@@ -81,7 +81,7 @@ function SignUpForm({ onLogin }) {
             className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           />
         </div>
-        <div className="flex items-center justify-between">
+        <div className="flex items-center mt-4 justify-between">
           <button type="submit" className="bg-pink-700 hover:bg-pink-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
             {isLoading ? "Loading..." : "Sign Up"}
           </button>
@@ -95,7 +95,7 @@ function SignUpForm({ onLogin }) {
         )}
       </form>
     </div>
-  </>
+</>
   
   );
 }

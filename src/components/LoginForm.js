@@ -10,7 +10,7 @@ function LoginForm({ onLogin }) {
   function handleSubmit(e) {
     e.preventDefault();
     setIsLoading(true);
-    fetch("/login", {
+    fetch("http://127.0.0.1:3000/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -53,7 +53,7 @@ function LoginForm({ onLogin }) {
             className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           />
         </div>
-        <div className="flex items-center justify-between">
+        <div className="flex items-center mt-3 justify-between">
           <button type="submit" className="bg-pink-700 hover:bg-pink-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
             {isLoading ? "Loading..." : "Sign Up"}
           </button>
