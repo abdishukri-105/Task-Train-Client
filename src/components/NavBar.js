@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { Button } from "../styles";
 
 function NavBar({ user, setUser }) {
+
   function handleLogoutClick() {
     fetch("/logout", { method: "DELETE" }).then((r) => {
       if (r.ok) {
@@ -11,14 +12,14 @@ function NavBar({ user, setUser }) {
       }
     });
   }
-
+ 
   return (
     <Wrapper>
       <Logo>
-        <Link to="/">Reciplease</Link>
+        <Link to="/" exact >Reciplease</Link>
       </Logo>
       <Nav>
-        <Button as={Link} to="/new">
+        <Button as={Link} to="/new" exact >
           New Recipe
         </Button>
         <Button variant="outline" onClick={handleLogoutClick}>
