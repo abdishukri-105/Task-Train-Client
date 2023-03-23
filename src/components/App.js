@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import NavBar from "./NavBar";
 import Login from "../pages/Login";
 import TodoList from "../pages/TodoList";
-// import NewRecipe from "../pages/NewRecipe";
+import NewTodo from "../pages/NewTodo";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -24,7 +24,7 @@ function App() {
       <NavBar user={user} setUser={setUser} />
       <main> 
         <Routes>
-          {/* <Route path="/new"  element={<NewRecipe user={user} />}/> */}
+          <Route path="/new"  element={<NewTodo user={user} />}/>
           <Route path="/" element={<TodoList />}/>
           
         </Routes>
