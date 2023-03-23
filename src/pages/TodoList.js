@@ -1,8 +1,14 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import DeleteTodo from "../components/DeleteTodo";
 
 const TodoList = () => {
     const [tasks, setTasks] = useState([]);
+    const [showModal, setShowModal] = useState(false);
+
+  const handleEdit = () => {
+    setShowModal(true);
+  };
 
     // useEffect(() => {
     //   fetch("/recipes")
@@ -25,7 +31,7 @@ const TodoList = () => {
                   <div className="flex flex-col text-right">
                     <p className="text-gray-600">{task.status}</p>
                     <p className="text-gray-600">{task.priority}</p>
-                    <button >Delete</button>
+                    <button> Delete</button>
                   </div>
                 </div>
               </div>
