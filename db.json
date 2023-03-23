@@ -1,0 +1,26 @@
+{
+    "todos": [
+      {
+        "id": 1,
+        "title": "Buy groceries",
+        "description": "Buy milk, bread and eggs",
+        "status": "CREATED",
+        "priority": "MEDIUM"
+      },
+      {
+        "id": 2,
+        "title": "Do laundry",
+        "description": "Wash clothes and fold them",
+        "status": "STARTED",
+        "priority": "LOW"
+      },
+      {
+        "id": 3,
+        "title": "Clean house",
+        "description": "Vacuum and mop the floors",
+        "status": "CANCELLED",
+        "priority": "LOW"
+      }
+    ]
+  }
+  

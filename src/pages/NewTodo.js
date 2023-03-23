@@ -5,8 +5,8 @@ const NewTodo = ({user}) => {
  
     const [title, setTitle] = useState("Work out");
     const [description, setDescription] = useState(`I want to work out from 6am to 7am.`);
-    const [status, setStatus] = useState([]);
-    const [priority, setPriority] = useState([]);
+    const [status, setStatus] = useState("CREATED");
+    const [priority, setPriority] = useState("HIGH");
     const [errors, setErrors] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
   
@@ -37,9 +37,9 @@ const NewTodo = ({user}) => {
     //   }
     return ( 
 <div className="flex flex-col justify-center md:flex-row">
-  <div className="w-full md:w-1/3 md:pr-4">
-    <h2 className="text-lg font-medium mb-1 text-center">Create Task</h2>
-    <form className="shadow-xl rounded-xl p-4">
+  <div className="w-full md:w-2/5 md:pr-4">
+    <form className="shadow-xl rounded-xl py-3 px-9">
+    <h2 className="text-2xl text-pink-700 font-medium mb-1  text-center">Create Task</h2>
       <div className="mb-2">
         <label htmlFor="title" className="block text-gray-700 font-medium mb-2">Title</label>
         <input
@@ -53,7 +53,7 @@ const NewTodo = ({user}) => {
       <div className="mb-2">
         <label htmlFor="description" className="block text-gray-700 font-medium mb-2">Description</label>
         <textarea
-          rows="3"
+          rows="2"
           id="description"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
@@ -62,22 +62,32 @@ const NewTodo = ({user}) => {
       </div>
       <div className="mb-2">
         <label htmlFor="status" className="block text-gray-700 font-medium mb-2">Status</label>
-        <input
+        <select
           id="status"
           value={status}
           onChange={(e) => setStatus(e.target.value)}
           className="border border-gray-400 p-2 w-full"
-        />
+        >
+          <option value="CREATED">Created</option>
+          <option value="STARTED">Started</option>
+          <option value="COMPLETED">Completed</option>
+          <option value="CANCELLED">Cancelled</option>
+        </select>
       </div>
-      <div className="mb-2">
+       <div className="mb-2">
         <label htmlFor="priority" className="block text-gray-700 font-medium mb-2">Priority</label>
-        <input
+        <select
           id="priority"
           value={priority}
           onChange={(e) => setPriority(e.target.value)}
           className="border border-gray-400 p-2 w-full"
-        />
+        >
+          <option value="HIGH">High</option>
+          <option value="MEDIUM">Medium</option>
+          <option value="LOW">Low</option>
+        </select>
       </div>
+
       <div className="mb-2">
         <button
           type="submit"
@@ -92,15 +102,6 @@ const NewTodo = ({user}) => {
         ))}
       </div>
     </form>
-  </div>
-  <div className="w-full md:w-1/2 md:pl-4">
-    <h1 className="text-xl font-medium mb-2">{title}</h1>
-    <p className="text-gray-500 mb-4">
-      <em>Priority: {priority}</em>
-      <span className="mx-2">·</span>
-      <cite>Status: {status}</cite>
-    </p>
-    <p className="text-gray-700">{description}</p>
   </div>
 </div>
 
